@@ -7,7 +7,7 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
     return [{
         stats: { modules: false },
-        entry: { index: './ClientApp/index.js' },
+        entry: { index: './ClientApp/index.jsx' },
         resolve: { extensions: ['.js', '.jsx'] },
         output: {
             path: path.join(__dirname, bundleOutputDir),
@@ -20,7 +20,7 @@ module.exports = (env) => {
         ],
         module: {
         loaders: [
-            {test: /\.js$/, include: path.join(__dirname, 'ClientApp'), loaders: ['babel-loader']},
+            {test: /\.js|jsx$/, include: path.join(__dirname, 'ClientApp'), loaders: ['babel-loader']},
             {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
             {test: /\.(woff|woff2)$/, loader: 'url-loader?prefix=font/&limit=5000'},
