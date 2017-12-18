@@ -3,10 +3,9 @@
   "description": "dotnet core app with react",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel dotnet:run eslint:watch webpack webpack:vendor test test:watch",
+    "start": "npm-run-all --parallel dotnet:run eslint:watch webpack webpack:vendor test:watch",
     "dotnet:run": "dotnet run",
-    "eslint": "node_modules/.bin/esw webpack.config.* tools",
-    "eslint:watch": "npm run eslint -- --watch",
+    "eslint:watch": "node node_modules/eslint-watch/bin/esw -w --fix webpack.config.* ClientApp tools",
     "webpack": "webpack --config webpack.config.js",
     "webpack:vendor": "webpack --config webpack.config.vendor.js",
     "test": "mocha --reporter progress tools/testSetup.js \"ClientApp/**/*.test.js\"",
