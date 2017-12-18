@@ -7,7 +7,7 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
     return [{
         stats: { modules: false },
-        entry: { index: './ClientApp/index.jsx' },
+        entry: { index: './ClientApp/index.js' },
         resolve: { extensions: ['.js', '.jsx'] },
         output: {
             path: path.join(__dirname, bundleOutputDir),
